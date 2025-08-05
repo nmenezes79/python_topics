@@ -1,0 +1,46 @@
+# Base class Rectangle
+class Rectangle:
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):
+        return self.length * self.breadth
+
+    def perimeter(self):
+        return 2 * (self.length + self.breadth)
+
+    def setLength(self, length):
+        self.length = length
+
+    def setBreadth(self, breadth):
+        self.breadth = breadth
+
+# Derived class Square overrides setLength and setBreadth
+class Square(Rectangle):
+    def __init__(self, side):
+        super().__init__(side, side)
+
+    # Override setLength to set both length and breadth
+    def setLength(self, side):
+        self.length = side
+        self.breadth = side
+
+    # Override setBreadth to set both length and breadth
+    def setBreadth(self, side):
+        self.length = side
+        self.breadth = side
+
+# Example usage
+sq = Square(5)
+print("Initial Square area:", sq.area())  # 25
+
+sq.setLength(7)
+print("After setLength(7):")
+print("Length:", sq.length, "Breadth:", sq.breadth)
+print("Area:", sq.area())  # 49
+
+sq.setBreadth(10)
+print("After setBreadth(10):")
+print("Length:", sq.length, "Breadth:", sq.breadth)
+print("Area:", sq.area())  # 100

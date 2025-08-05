@@ -1,0 +1,26 @@
+# Base class Rectangle
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+# Derived class Square inherits from Rectangle
+class Square(Rectangle):
+    def __init__(self, side):
+        # Call Rectangle's constructor with length = width = side
+        super().__init__(side, side)
+
+# Example usage
+rect = Rectangle(4, 6)
+print("Rectangle area:", rect.area())
+print("Rectangle perimeter:", rect.perimeter())
+
+sq = Square(5)
+print("Square area:", sq.area())
+print("Square perimeter:", sq.perimeter())
